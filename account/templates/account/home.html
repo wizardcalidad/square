@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+     {% if title %}
+            <title>Square Home - {{ title }}</title>
+     {% else %}
+            <title>Square Home </title>
+     {% endif %}
+
+</head>
+<body>
+{% block content %}
+    <h1>Welcome to the village square of the community...</h1>
+     <hr>
+        {% for post in posts %}
+           <h2>{{ post.title }}</h2>
+            <p>By {{ post.author }} on {{ post.date_posted|date:"F d, Y" }}</p>
+            <p>{{ post.content }}</p>
+        {% endfor %}
+
+{% endblock %}
+</body>
+</html>
